@@ -22,7 +22,9 @@ Rails.application.configure do
   # or in config/master.key. This key is used to decrypt credentials.
   # If you are seeing "ArgumentError: key must be 16 bytes", this is likely the issue.
   # Ensure RAILS_MASTER_KEY is set correctly in Render's environment variables.
-  config.require_master_key = true
+  # IMPORTANT: Commenting out or removing config.require_master_key for testing purposes
+  # if you are not using encrypted credentials and facing persistent ArgumentError.
+  # config.require_master_key = true # Commented out
 
   # The secret_key_base is now explicitly set in config/application.rb.
   # This line is no longer strictly needed here, but keeping it for clarity

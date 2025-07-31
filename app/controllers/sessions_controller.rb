@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       # For simplicity, we'll return user ID and email.
       # In a real app, you'd generate and return a JWT token here.
-      render json: { user: user.as_json(only: [:id, :email]), message: 'Logged in successfully' }, status: :ok
+      render json: { user: user.as_json(only: [ :id, :email ]), message: "Logged in successfully" }, status: :ok
     else
-      render json: { error: 'Invalid email or password' }, status: :unauthorized
+      render json: { error: "Invalid email or password" }, status: :unauthorized
     end
   end
 end

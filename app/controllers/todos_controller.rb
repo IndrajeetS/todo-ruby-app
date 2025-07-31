@@ -1,7 +1,7 @@
 # app/controllers/todos_controller.rb
 class TodosController < ApplicationController
   before_action :set_current_user # Ensure user is identified
-  before_action :set_todo, only: [:show, :update, :destroy]
+  before_action :set_todo, only: [ :show, :update, :destroy ] # Added spaces
 
   # GET /todos
   def index
@@ -50,11 +50,11 @@ class TodosController < ApplicationController
     # For now, let's assume a user ID is passed in headers for simplicity.
     # Example: Authorization: Bearer <user_id_here>
     # This is highly insecure and for development ONLY.
-    user_id = request.headers['Authorization']&.split(' ')&.last
+    user_id = request.headers["Authorization"]&.split(" ")&.last # Changed to double quotes
     @current_user = User.find_by(id: user_id)
 
     unless @current_user
-      render json: { error: 'Unauthorized: Please log in or provide a valid user ID.' }, status: :unauthorized
+      render json: { error: "Unauthorized: Please log in or provide a valid user ID." }, status: :unauthorized # Changed to double quotes
     end
   end
 
@@ -63,7 +63,7 @@ class TodosController < ApplicationController
     # Ensure the todo belongs to the current user
     @todo = @current_user.todos.find_by(id: params[:id])
     unless @todo
-      render json: { error: 'Todo not found or you are not authorized to access it.' }, status: :not_found
+      render json: { error: "Todo not found or you are not authorized to access it." }, status: :not_found # Changed to double quotes
     end
   end
 

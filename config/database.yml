@@ -106,5 +106,5 @@ test:
 #     migrations_paths: db/cable_migrate
 production:
   # The `url` key is all that is needed for production on a service like Render.
-  # This prevents any local settings from interfering.
+  # This prevents any local settings from interfering
   url: <%= ENV['DATABASE_URL'] %>
